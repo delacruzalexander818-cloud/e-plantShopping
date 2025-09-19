@@ -1,4 +1,41 @@
 /* Reset some default styles */
+/* Título centrado con línea arriba y abajo */
+.category-title {
+    position: relative;
+    text-align: center;
+    color: #111;
+    font-weight: 800;
+    font-size: clamp(20px, 3vw, 32px);
+    padding: 10px 0;        /* espacio para las líneas */
+    margin: 24px 0;         /* separación con las cards */
+  }
+  
+  .category-title::before,
+  .category-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(640px, 92%); /* largo de las líneas (ajústalo si quieres) */
+    height: 2px;
+    background: #111;
+    opacity: 0.65;          /* un poco más suave */
+  }
+  
+  .category-title::before { top: 0; }    /* línea superior */
+  .category-title::after  { bottom: 0; } /* línea inferior */
+.cart-badge {
+  position: absolute;
+  /* Ajusta estos dos valores para colocar el número exacto donde lo quieres */
+  top: 39px;        /* mueve vertical */
+  right: 38px;     /* mueve horizontal */
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;     /* como en tu ejemplo */
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+  pointer-events: none; /* no bloquea el click del carrito */
+}
 body, h1, ul {
     margin: 0;
     padding: 0;
@@ -154,11 +191,12 @@ body {
 }
 
 .luxury {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 650px;
-    font-size: 19px;
+   display: flex;
+  align-items: center;
+  justify-content: center;   
+  width: 650px;
+  font-size: 19px;
+  gap: 16px; 
 }
 .cart{
     color: white;
